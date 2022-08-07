@@ -39,9 +39,9 @@ pwm.ChangeDutyCycle(50)
 while True:
   buttons=wii.state["buttons"]
   if (buttons & cwiid.BTN_LEFT):
-     servo.value=-0.5
-  if (buttons & cwiid.BTN_RIGHT):
      servo.value=+0.5
+  if (buttons & cwiid.BTN_RIGHT):
+     servo.value=-0.5
   if (buttons & cwiid.BTN_UP):
      GPIO.output(motor_in1, True)
      GPIO.output(motor_in2, False)
