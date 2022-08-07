@@ -21,6 +21,18 @@ wii.rpt_mode = cwiid.RPT_BTN
 # initialize
 
 print('initialize')
+import os, time
+from pygame import mixer
+
+def playSound():
+        # Initialize pygame mixer
+    mixer.init()
+        # Load the sounds
+    sound = mixer.Sound('../sound/Cheerful R2D2.wav')
+        # play sounds
+    sound.play()
+         # wait for sound to finish playing
+    time.sleep(3)
 
 servo = Servo(5)
 GPIO.setmode(GPIO.BCM)
@@ -54,10 +66,8 @@ while True:
       GPIO.output(motor_in2, False)
   if (buttons & cwiid.BTN_A):
      servo.value=-0
-# ---------------------------
-
-#try:
-    #while True:
+  if (buttons & cwiid.BTN_HOME):
+     playSound() 
 
 for x in range(0, -5, -1):
     servo.value=x/10
