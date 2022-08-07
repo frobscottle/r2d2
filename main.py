@@ -49,7 +49,8 @@ while True:
   if (buttons & cwiid.BTN_B):
       GPIO.output(motor_in1, False)
       GPIO.output(motor_in2, False)
-
+  if (buttons & cwiid.BTN_A):
+     servo.value=0
 # ---------------------------
 
 #try:
