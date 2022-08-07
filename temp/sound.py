@@ -5,7 +5,7 @@ def playSound():
         # Initialize pygame mixer
     mixer.init()
         # Load the sounds
-    sound = mixer.Sound('./sound/R2 beeping 2.mp3')
+    sound = mixer.Sound('../sound/R2 beeping 2.mp3')
         # play sounds
     sound.play()
          # wait for sound to finish playing
@@ -13,5 +13,5 @@ def playSound():
 
 if __name__ == '__main__':
     while(True):
-	playSound() 
+        playSound() 
         time.sleep(10)
