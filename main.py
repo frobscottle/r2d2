@@ -20,6 +20,8 @@ wii.rpt_mode = cwiid.RPT_BTN
 
 # initialize
 
+print('initialize')
+
 servo = Servo(5)
 GPIO.setmode(GPIO.BCM)
 motor_in1 = 2 #purple
@@ -30,15 +32,16 @@ GPIO.setup(motor_in2, GPIO.OUT)
 GPIO.setup(motor_en, GPIO.OUT)
 pwm=GPIO.PWM(motor_en, 100)
 pwm.start(0)
+pwm.ChangeDutyCycle(50)
 
 # main loop
 
 while True:
   buttons=wii.state["buttons"]
   if (buttons & cwiid.BTN_LEFT):
-     servo.value=+0.5
-  if (buttons & cwiid.BTN_RIGHT):
      servo.value=-0.5
+  if (buttons & cwiid.BTN_RIGHT):
+     servo.value=+0.5
   if (buttons & cwiid.BTN_UP):
      GPIO.output(motor_in1, True)
      GPIO.output(motor_in2, False)
@@ -50,7 +53,7 @@ while True:
       GPIO.output(motor_in1, False)
       GPIO.output(motor_in2, False)
   if (buttons & cwiid.BTN_A):
-     servo.value=0
+     servo.value=-0
 # ---------------------------
 
 #try:
