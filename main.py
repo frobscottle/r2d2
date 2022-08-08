@@ -68,7 +68,16 @@ while True:
      servo.value=-0
   if (buttons & cwiid.BTN_HOME):
      playSound() 
-
+  if (buttons & cwiid.BTN_PLUS):
+     playSound()
+     GPIO.output(motor_in1, True)
+     GPIO.output(motor_in2, False)
+     servo.value=-0.5
+  if (buttons & cwiid.BTN_MINUS):
+     playSound()
+     GPIO.output(motor_in1, True)
+     GPIO.output(motor_in2, False)
+     servo.value=+0.5
 for x in range(0, -5, -1):
     servo.value=x/10
     sleep(0.2)
