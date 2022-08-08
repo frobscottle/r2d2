@@ -28,4 +28,11 @@ $ amixer set PCM 100%
 ```
 
 ## run
-2. Run: `python3 main.py`
+```
+ssh pi@192.168.1.46
+
+cd projects
+cd r2d2
+git pull
+python3 main.py
+```
